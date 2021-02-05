@@ -1,0 +1,39 @@
+/* -------------------------------------------------------------------------
+Animation de la page d.accueil
+--------------------------------------------------------------------------*/
+
+
+.animation div {
+    //transform: translateX(500px);
+    animation: anim-entete 1s 1s forwards;
+}
+
+@keyframes anim-entete {
+    0% {transform: translateX(1000px);}
+    100% {transform: translateX(0px);}
+}
+/*
+.animation div:nth-last-of-type(1) {
+    animation-delay: 1s;
+}
+.animation div:nth-last-of-type(2) {
+    animation-delay: 1.5s;
+}
+.animation div:nth-last-of-type(3) {
+    animation-delay: 2s;
+}
+.animation div:nth-last-of-type(4) {
+    animation-delay: 2.5s;
+}
+.animation div:nth-last-of-type(5) {
+    animation-delay: 3s;
+}
+*/
+$animations: 5;
+
+@for $i from 1 through $animations {
+    .animation div:nth-last-of-type(#{$i}){
+        animation-delay: 0.5*$i#{s};
+    }
+
+}
