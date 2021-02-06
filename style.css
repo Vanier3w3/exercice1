@@ -14,6 +14,10 @@ Animation de la page d.accueil
   animation: anim-entete 1s 1s forwards;
 }
 
+body::after {
+  animation: anim-clip-path 3s infinite ease-in-out;
+}
+
 @keyframes anim-entete {
   0% {
     transform: translateX(1000px);
@@ -23,23 +27,18 @@ Animation de la page d.accueil
   }
 }
 
-/*
-.animation div:nth-last-of-type(1) {
-    animation-delay: 1s;
+@keyframes anim-clip-path {
+  0% {
+    clip-path: polygon(0 0, 65% 0, 50% 100%, 0 100%);
+  }
+  50% {
+    clip-path: polygon(0 0, 80% 0, 35% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 65% 0, 50% 100%, 0 100%);
+  }
 }
-.animation div:nth-last-of-type(2) {
-    animation-delay: 1.5s;
-}
-.animation div:nth-last-of-type(3) {
-    animation-delay: 2s;
-}
-.animation div:nth-last-of-type(4) {
-    animation-delay: 2.5s;
-}
-.animation div:nth-last-of-type(5) {
-    animation-delay: 3s;
-}
-*/
+
 .animation div:nth-last-of-type(1) {
   animation-delay: 0.5s;
 }
@@ -78,7 +77,6 @@ body {
 
 body::after {
   content: "";
-  clip-path: polygon(0 0, 80% 0, 50% 100%, 0 100%);
   background-color: #181a1d;
   position: absolute;
   width: 100%;
