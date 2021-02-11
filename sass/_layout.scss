@@ -26,6 +26,7 @@ body::after {
     left :0;
     right : 0;
     z-index: -1;
+    clip-path: polygon(0 0, 80% 0 , 35% 100% , 0 100%);
 }
 
 h1{font-size:4rem ;}
@@ -98,8 +99,6 @@ p {
 .pied-page{
     grid-area: pied-page;
 }
-
-
 
 
 .entete{

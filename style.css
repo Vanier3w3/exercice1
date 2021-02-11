@@ -27,18 +27,6 @@ body::after {
   }
 }
 
-@keyframes anim-clip-path {
-  0% {
-    clip-path: polygon(0 0, 65% 0, 50% 100%, 0 100%);
-  }
-  50% {
-    clip-path: polygon(0 0, 80% 0, 35% 100%, 0 100%);
-  }
-  100% {
-    clip-path: polygon(0 0, 65% 0, 50% 100%, 0 100%);
-  }
-}
-
 .animation div:nth-last-of-type(1) {
   animation-delay: 0.5s;
 }
@@ -86,6 +74,7 @@ body::after {
   left: 0;
   right: 0;
   z-index: -1;
+  clip-path: polygon(0 0, 80% 0, 35% 100%, 0 100%);
 }
 
 h1 {
