@@ -1,11 +1,22 @@
-$couleurs : (content: #EAF205,
+$couleurs : (
+    content: #EAF205,
     hover: #D9CB04,
     text: #5204BF,
-    background: (light: #BF04B3,
+    background: (
+        light: #BF04B3,
         medium: #5D04D9,
-        dark: #5204BF));
+        dark: #5204BF
+    )
+    );
 
-
-@function couleur($propriete, $tone) {
+/*
+@function couleur($propriete, $tone){
     @return map-get(map-get(($couleurs, $propriete), $tone));
+}*/
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
 }
