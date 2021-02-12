@@ -10,41 +10,44 @@ animation
 /* -------------------------------------------------------------------------
 Animation de la page d.accueil
 --------------------------------------------------------------------------*/
-.animation div {
-  animation: anim-entete 1s 1s forwards;
+sidebar:hover {
+  animation: anim-vibre 1s infinite;
 }
 
-body::after {
-  animation: anim-clip-path 3s infinite ease-in-out;
-}
-
-@keyframes anim-entete {
+@keyframes anim-vibre {
   0% {
-    transform: translateX(1000px);
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
   }
   100% {
-    transform: translateX(0px);
+    transform: translate(1px, -2px) rotate(-1deg);
   }
-}
-
-.animation div:nth-last-of-type(1) {
-  animation-delay: 0.5s;
-}
-
-.animation div:nth-last-of-type(2) {
-  animation-delay: 1s;
-}
-
-.animation div:nth-last-of-type(3) {
-  animation-delay: 1.5s;
-}
-
-.animation div:nth-last-of-type(4) {
-  animation-delay: 2s;
-}
-
-.animation div:nth-last-of-type(5) {
-  animation-delay: 2.5s;
 }
 
 /* ---------------------------------------
@@ -88,24 +91,12 @@ h1 {
   font-size: 4rem;
 }
 
-h2 {
-  font-size: 3rem;
-}
-
 h3 {
   font-size: 2rem;
 }
 
 li, h5 {
   font-size: 1rem;
-}
-
-h6 {
-  font-size: .7rem;
-}
-
-p {
-  font-size: .6rem;
 }
 
 .bloc {
@@ -180,11 +171,13 @@ p {
   width: 50%;
   margin: 0 auto;
   background-color: #EAF205;
+  border-radius: 0 0 10px 10px;
 }
 
 .menu {
-  margin-top: -40px;
-  border-radius: 0 0 10px 10px;
+  display: none;
+  align-items: center;
+  margin-top: -50px;
 }
 
 .menu ul {
@@ -195,9 +188,27 @@ p {
   width: 100%;
 }
 
+.menu ul a {
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.menu ul a:hover {
+  background-color: #D9CB04;
+}
+
+@media (min-width: 1000px) {
+  .menu {
+    display: flex;
+  }
+}
+
 .annonce1, .annonce2, .principal1, .principal2, .principal3 {
   background-color: #EAF205;
-  box-shadow: 7px 3px 11px 4px #919604;
+  box-shadow: 0 0 20px 10px #f9ff4a;
   color: #5204BF;
   border-radius: 10px;
   padding: 42px;
@@ -214,11 +225,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-}
-
-.principal1, .principal2, .principal3 {
-  display: grid;
-  box-shadow: -7px -3px 11px 4px #919604;
 }
 
 .pied-page {

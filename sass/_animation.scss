@@ -3,24 +3,52 @@ Animation de la page d.accueil
 --------------------------------------------------------------------------*/
 
 
-.animation div {
-    //transform: translateX(500px);
-    animation: anim-entete 1s 1s forwards;
-}
-body::after {
-    animation: anim-clip-path 3s infinite ease-in-out ;
+sidebar:hover {
+    animation: anim-vibre 1s infinite;
 }
 
-@keyframes anim-entete {
-    0% {transform: translateX(1000px);}
-    100% {transform: translateX(0px);}
-}
-
-$animations: 5;
-
-@for $i from 1 through $animations {
-    .animation div:nth-last-of-type(#{$i}){
-        animation-delay: 0.5*$i#{s};
+@keyframes anim-vibre {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
     }
 
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
 }

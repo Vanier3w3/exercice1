@@ -1,75 +1,78 @@
 * {
-    margin : 0;
-    padding :0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    width : 100vw;
-    height : 100vh;
+    width: 100vw;
+    height: 100vh;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
     overflow-x: hidden;
-    // background-color: rgb(179, 179, 204);
-    background-color: #5204BF;
+    background-color: couleur(background, light);
 }
 
 
-body::after, span {
+body::after,
+span {
     display: block;
-    content : "";
-    //background-color: rgb(43, 71, 233);
-    background-color: couleur(primaire);
+    content: "";
+    background-color: couleur(background, medium);
     position: absolute;
-    width : 100%;
-    height : 100%;
-    top : 0;
-    bottom :0;
-    left :0;
-    right : 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: -1;
-    clip-path: polygon(0 0, 100% 0 , 50% 33%);
+    clip-path: polygon(0 0, 100% 0, 50% 33%);
 }
 
 span {
-    background-color: #5D04D9;
-    clip-path: polygon(0 0, 100% 0 , 100% 33% , 50% 66% , 0 33%)
+    background-color: couleur(background, dark);
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 50% 66%, 0 33%)
 }
 
-h1{font-size:4rem ;}
-h2{font-size:3rem ;}
-h3{font-size:2rem ;}
-li, h5{font-size:1rem ;}
-h6{font-size: .7rem ;}
-p {
-    font-size: .6rem;
+h1 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+li,
+h5 {
+    font-size: 1rem;
 }
 
 .bloc {
-    color :#5204BF;
+    color: couleur(text);
     font-size: 3rem;
-    margin-left : 0;
-    display : flex;
+    margin-left: 0;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     min-width: 100px;
 }
 
 .bloc img {
-    width : 100px;
-    height : 100px;
+    width: 100px;
+    height: 100px;
     display: block;
-    border-radius :50%;
-    margin-right : 15px;
+    border-radius: 50%;
+    margin-right: 15px;
 }
 
 .grille {
-    display : grid;
+    display: grid;
     width: 80%;
-    margin : 0 auto;
-    grid-gap : 40px;
+    margin: 0 auto;
+    grid-gap: 40px;
     grid-template-columns: 1fr 1fr;
 
-    grid-template-areas: 
+    grid-template-areas:
         "entete entete"
         "menu menu"
         "principal1 principal1"
@@ -78,9 +81,9 @@ p {
         "annonce2 annonce2"
         "principal3 principal3"
         "pied-page pied-page";
-        @include desktop    
-        {
-        grid-template-areas: 
+
+    @include desktop {
+        grid-template-areas:
             "entete entete"
             "menu menu"
             "principal1 annonce1"
@@ -90,83 +93,115 @@ p {
             "principal3 annonce2"
             "principal3 annonce2"
             "pied-page pied-page";
-        }
+    }
 }
 
-.entete{
+.entete {
     grid-area: entete;
 }
-.menu{
+
+.menu {
     grid-area: menu;
 }
-.annonce1{
+
+.annonce1 {
     grid-area: annonce1;
 }
-.annonce2{
+
+.annonce2 {
     grid-area: annonce2;
 }
-.principal1{
+
+.principal1 {
     grid-area: principal1;
 }
-.principal2{
+
+.principal2 {
     grid-area: principal2;
 }
-.principal3{
+
+.principal3 {
     grid-area: principal3;
 }
-.pied-page{
+
+.pied-page {
     grid-area: pied-page;
 }
 
 
-.entete, .menu{
+.entete,
+.menu {
     display: flex;
     flex-direction: row;
     justify-content: center;
     width: 50%;
     margin: 0 auto;
-    background-color: #EAF205;
-}
-.menu {
-    margin-top: -40px;
+    background-color: couleur(content);
     border-radius: 0 0 10px 10px;
+}
+
+.menu {
+    display: none;
+    align-items: center;
+    margin-top: -50px;
+
     ul {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
         list-style: none;
         width: 100%;
-        
+
+        a {
+            text-decoration: none;
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        a:hover {
+            background-color: couleur(hover);
+        }
+    }
+
+    @include desktop {
+        display: flex;
     }
 }
-.annonce1, .annonce2, .principal1, .principal2, .principal3 {
-    background-color: #EAF205;
-    box-shadow: 7px 3px 11px 4px #919604;
+
+
+
+.annonce1,
+.annonce2,
+.principal1,
+.principal2,
+.principal3 {
+    background-color: couleur(content);
+    box-shadow: 0 0 20px 10px #f9ff4a;
     color: #5204BF;
     border-radius: 10px;
     padding: 42px;
     margin: 20px;
 }
-.annonce1 div{
+
+.annonce1 div {
     font-size: .4em;
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
-.annonce2 section{
-    display : flex;
+.annonce2 section {
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.principal1, .principal2, .principal3{
-    display : grid;
-    box-shadow: -7px -3px 11px 4px #919604;
-}
+
 
 .pied-page {
     display: flex;
     justify-content: flex-end;
-    background-color: #EAF205;
+    background-color: couleur(content);
     text-align: end;
     padding: 0 3vw;
     border-radius: 10px 10px 0 0;

@@ -1,13 +1,11 @@
-$couleur_desktop: #BF04B3;
-$couleurs : (
-    primaire : $couleur_desktop,
-    text:black,
-    primaire_pale : lighten($couleur_desktop, 40%)
-    );
+$couleurs : (content: #EAF205,
+    hover: #D9CB04,
+    text: #5204BF,
+    background: (light: #BF04B3,
+        medium: #5D04D9,
+        dark: #5204BF));
 
 
-@function couleur($propriete){
-    @return map-get($couleurs, $propriete);
+@function couleur($propriete, $tone) {
+    @return map-get(map-get(($couleurs, $propriete), $tone));
 }
-
-
