@@ -8,13 +8,14 @@ body {
     height : 100vh;
     font-family: 'Montserrat', sans-serif;
     font-size: 12px;
+    overflow-x: hidden;
     // background-color: rgb(179, 179, 204);
-    background-color: #fff;
-
+    background-color: #5204BF;
 }
 
 
-body::after {
+body::after, span {
+    display: block;
     content : "";
     //background-color: rgb(43, 71, 233);
     background-color: couleur(primaire);
@@ -26,28 +27,31 @@ body::after {
     left :0;
     right : 0;
     z-index: -1;
-    clip-path: polygon(0 0, 80% 0 , 35% 100% , 0 100%);
+    clip-path: polygon(0 0, 100% 0 , 50% 33%);
+}
+
+span {
+    background-color: #5D04D9;
+    clip-path: polygon(0 0, 100% 0 , 100% 33% , 50% 66% , 0 33%)
 }
 
 h1{font-size:4rem ;}
 h2{font-size:3rem ;}
 h3{font-size:2rem ;}
-h4{font-size:1rem ;}
-h5{font-size:.8rem ;}
+li, h5{font-size:1rem ;}
 h6{font-size: .7rem ;}
 p {
     font-size: .6rem;
 }
 
 .bloc {
-    border : 1px solid #666;
-    background-color:transparent;
-    color :wheat;
+    color :#5204BF;
     font-size: 3rem;
     margin-left : 0;
     display : flex;
     flex-direction: column;
     justify-content: flex-start;
+    min-width: 100px;
 }
 
 .bloc img {
@@ -62,22 +66,30 @@ p {
     display : grid;
     width: 80%;
     margin : 0 auto;
-    grid-gap : 20px;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap : 40px;
+    grid-template-columns: 1fr 1fr;
 
     grid-template-areas: 
-        "entete entete entete"
-        "menu menu menu"
-        "annonce1 annonce1 annonce1"
-        "principal principal principal"
-        "pied-page pied-page pied-page";
+        "entete entete"
+        "menu menu"
+        "principal1 principal1"
+        "annonce1 annonce1"
+        "principal2 principal2"
+        "annonce2 annonce2"
+        "principal3 principal3"
+        "pied-page pied-page";
         @include desktop    
         {
         grid-template-areas: 
-            "entete entete entete"
-            "menu menu menu"
-            "principal annonce1 annonce1"
-            "pied-page pied-page pied-page";
+            "entete entete"
+            "menu menu"
+            "principal1 annonce1"
+            "principal1 annonce1"
+            "principal2 annonce1"
+            "principal2 annonce2"
+            "principal3 annonce2"
+            "principal3 annonce2"
+            "pied-page pied-page";
         }
 }
 
@@ -93,64 +105,69 @@ p {
 .annonce2{
     grid-area: annonce2;
 }
-.principal{
-    grid-area: principal;
+.principal1{
+    grid-area: principal1;
+}
+.principal2{
+    grid-area: principal2;
+}
+.principal3{
+    grid-area: principal3;
 }
 .pied-page{
     grid-area: pied-page;
 }
 
 
-.entete{
+.entete, .menu{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-
-    section{
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    background-color: #EAF205;
+}
+.menu {
+    margin-top: -40px;
+    border-radius: 0 0 10px 10px;
+    ul {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
-        align-items: center;
-        div{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            margin: 10px;
-            border-radius: 50%;
-            background-color: blue;
-        }
-    }
-}
-
-.annonce1{
-    background-color: #efebc5;
-    color: #5e6e81;
-    border-radius: 10px;
-    box-shadow: 7px 3px 11px 4px #757472;
-    padding: 42px;
-    margin: 20px;
-    div{
-        font-size: .4em;
-        display:flex;
-        align-items: center;
-        }
-    }
-
-.annonce2{
-    padding: 42px;
-    margin: 20px;
-    background-color: #efebc5;
-    color: #1c2127;
-    section {
-        display : flex;
-        flex-wrap: wrap;
         justify-content: space-around;
+        list-style: none;
+        width: 100%;
+        
     }
-
 }
-.principal{
+.annonce1, .annonce2, .principal1, .principal2, .principal3 {
+    background-color: #EAF205;
+    box-shadow: 7px 3px 11px 4px #919604;
+    color: #5204BF;
+    border-radius: 10px;
+    padding: 42px;
+    margin: 20px;
+}
+.annonce1 div{
+    font-size: .4em;
+    display:flex;
+    align-items: center;
+}
+
+.annonce2 section{
+    display : flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.principal1, .principal2, .principal3{
     display : grid;
-    place-items: center;
+    box-shadow: -7px -3px 11px 4px #919604;
+}
+
+.pied-page {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #EAF205;
+    text-align: end;
+    padding: 0 3vw;
+    border-radius: 10px 10px 0 0;
 }
